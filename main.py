@@ -55,26 +55,6 @@ def make_plot_masked():
     plt.show()
     
 def make_plot():
-    # load image. This has been modified in gimp to be brighter and have more saturation.
-    parrot_color = np.array(Image.open(os.path.join(d, INPUTFILE)))
-    # subsample by factor of 3. Very lossy but for a wordcloud we don't really care.
-    parrot_color = parrot_color[::3, ::3]
-
-    # create mask  white is "masked out"
-    parrot_mask = parrot_color.copy()
-    parrot_mask[parrot_mask.sum(axis=2) == 0] = 255
-
-    # some finesse: we enforce boundaries between colors so they get less washed out.
-    # For that we do some edge detection in the image
-    edges = np.mean(
-        [
-            gaussian_gradient_magnitude(parrot_color[:, :, i] / 255.0, 2)
-            for i in range(3)
-        ],
-        axis=0,
-    )
-    parrot_mask[edges > 0.40] = 255
-
     text = " ".join(i for i in open("save/chatlog.txt", "r") if re.search('https?:\/\/(www\.)?[-a-zA-Z0-9@:%._\+~#=]{1,256}\.[a-zA-Z0-9()]{1,6}\b([-a-zA-Z0-9()@:%_\+.~#?&//=]*)',i) == None)
     wordcloud = WordCloud(font_path="Reduction.ttf",background_color="white",scale=SCALE, min_font_size=MIN_FONT_SIZE,max_font_size=MAX_FONT_SIZE,contour_width=2,contour_color="black",collocations=False,max_words=MAX_WORDS).generate(text)
 
