@@ -34,3 +34,5 @@ Please see the included LICENSE for details on all other files.
 This repository is uploaded mostly for demonstration purposes and personal use, but pull requests and issues are welcome. Please give me some time to respond.
 
 ![wordcloud](https://github.com/onura46/twitch-wordcloud/assets/67405765/0480b5b2-a6cd-4bef-b580-d8db9e8b389f)
+
+![wordcloud2](https://github.com/onura46/twitch-wordcloud/assets/67405765/63222657-a5a9-45ba-ac47-47f9c7a5d365)
