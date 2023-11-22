@@ -20,7 +20,7 @@ from config import MASKED, CHANNEL_TO_LISTEN_TO
 ##################### GAME VARIABLES #####################
 
 # Replace this with your Twitch username. Must be all lowercase.
-TWITCH_CHANNEL = CHANNEL_TO_LISTEN_TO
+TWITCH_CHANNEL = CHANNEL_TO_LISTEN_TO.lower()
 
 # If streaming on Youtube, set this to False
 STREAMING_ON_TWITCH = True
