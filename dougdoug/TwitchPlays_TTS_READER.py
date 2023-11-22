@@ -166,8 +166,6 @@ class ChatReader:
                 last_time = time.time();
 
         # If user presses Shift+Backspace, automatically end the program
-        # if keyboard.is_pressed('shift+backspace'):
-        #     exit()
         if keyboard.is_pressed('shift+backspace'):
             if MASKED:
                 make_plot_masked()

@@ -36,7 +36,7 @@ def make_plot_masked():
 
     # Process chatlog and regex out links, which break the wordcloud
     text = " ".join(i for i in open("save/chatlog.txt", "r") if re.search('https?:\/\/(www\.)?[-a-zA-Z0-9@:%._\+~#=]{1,256}\.[a-zA-Z0-9()]{1,6}\b([-a-zA-Z0-9()@:%_\+.~#?&//=]*)',i) == None)
-    wordcloud = WordCloud(font_path="Reduction.ttf",background_color="white",mask=parrot_mask,scale=SCALE,min_font_size=MIN_FONT_SIZE,max_font_size=MAX_FONT_SIZE,contour_width=2,contour_color="black",collocations=False,max_words=MAX_WORDS).generate(text)
+    wordcloud = WordCloud(font_path=FONT,background_color=BACKGROUND_COLOR,mask=parrot_mask,scale=SCALE,min_font_size=MIN_FONT_SIZE,max_font_size=MAX_FONT_SIZE,contour_width=2,contour_color="black",collocations=False,max_words=MAX_WORDS).generate(text)
 
     image_colors = ImageColorGenerator(parrot_color)
     wordcloud.recolor(color_func=image_colors)
@@ -58,7 +58,7 @@ def make_plot_masked():
 def make_plot():
     # Process chatlog and regex out links, which break the wordcloud
     text = " ".join(i for i in open("save/chatlog.txt", "r") if re.search('https?:\/\/(www\.)?[-a-zA-Z0-9@:%._\+~#=]{1,256}\.[a-zA-Z0-9()]{1,6}\b([-a-zA-Z0-9()@:%_\+.~#?&//=]*)',i) == None)
-    wordcloud = WordCloud(font_path="Reduction.ttf",background_color="white",scale=SCALE, min_font_size=MIN_FONT_SIZE,max_font_size=MAX_FONT_SIZE,contour_width=2,contour_color="black",collocations=False,max_words=MAX_WORDS).generate(text)
+    wordcloud = WordCloud(font_path=FONT,background_color=BACKGROUND_COLOR,scale=SCALE, min_font_size=MIN_FONT_SIZE,max_font_size=MAX_FONT_SIZE,contour_width=2,contour_color="black",collocations=False,max_words=MAX_WORDS).generate(text)
 
     plt.figure(figsize=(10, 10))
     plt.imshow(wordcloud, interpolation="bilinear")

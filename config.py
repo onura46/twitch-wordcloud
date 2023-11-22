@@ -5,6 +5,8 @@ SCALE = 12 # Scales size of the entire chart; increase if output image is too sm
 MIN_FONT_SIZE = 2 # Smallest possible words on chart
 MAX_FONT_SIZE = 40 # Largest possible words on chart - size of the most used words
 MAX_WORDS = 500 # Limit to this number of words
+FONT = "Reduction.ttf"
+BACKGROUND_COLOR = "white" # Accepts colors by word from https://drafts.csswg.org/css-color-4/#named-colors
 
 # Erases previous chat log before initialization
 CLEANUP = False
