@@ -6,7 +6,7 @@ MIN_FONT_SIZE = 3 # Smallest possible words on chart
 MAX_FONT_SIZE = 50 # Largest possible words on chart - size of the most used words
 MAX_WORDS = 500 # Limit to this number of words
 MARGIN = 2
-FONT = "Reduction.ttf"
+FONT = "fonts/Reduction.ttf"
 BACKGROUND_COLOR = "white" # Accepts colors by word from https://drafts.csswg.org/css-color-4/#named-colors
 COLORMAP = "plasma" # Accepts colormap names from https://matplotlib.org/stable/users/explain/colors/colormaps.html
 
