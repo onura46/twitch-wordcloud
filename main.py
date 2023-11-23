@@ -10,8 +10,9 @@ from config import *
 from cleanup import Cleanup
 
 d = os.path.dirname(__file__) if "__file__" in locals() else os.getcwd()
-if CLEANUP: # Flag in config that erases previous chatlog
+if CLEANUP:  # Flag in config that erases previous chatlog
     Cleanup.erase_save()
+
 
 def make_plot_masked():
     # load image. This has been modified in gimp to be brighter and have more saturation.
@@ -35,8 +36,29 @@ def make_plot_masked():
     parrot_mask[edges > 0.40] = 255
 
     # Process chatlog and regex out links, which break the wordcloud
-    text = " ".join(i for i in open("save/chatlog.txt", "r") if re.search('https?:\/\/(www\.)?[-a-zA-Z0-9@:%._\+~#=]{1,256}\.[a-zA-Z0-9()]{1,6}\b([-a-zA-Z0-9()@:%_\+.~#?&//=]*)',i) == None)
-    wordcloud = WordCloud(font_path=FONT,background_color=BACKGROUND_COLOR,mask=parrot_mask,scale=SCALE,min_font_size=MIN_FONT_SIZE,max_font_size=MAX_FONT_SIZE,contour_width=2,contour_color="black",collocations=False,max_words=MAX_WORDS,margin=MARGIN,colormap=COLORMAP).generate(text)
+    text = " ".join(
+        i
+        for i in open("save/chatlog.txt", "r")
+        if re.search(
+            "https?:\/\/(www\.)?[-a-zA-Z0-9@:%._\+~#=]{1,256}\.[a-zA-Z0-9()]{1,6}\b([-a-zA-Z0-9()@:%_\+.~#?&//=]*)",
+            i,
+        )
+        == None
+    )
+    wordcloud = WordCloud(
+        font_path=FONT,
+        background_color=BACKGROUND_COLOR,
+        mask=parrot_mask,
+        scale=SCALE,
+        min_font_size=MIN_FONT_SIZE,
+        max_font_size=MAX_FONT_SIZE,
+        contour_width=2,
+        contour_color="black",
+        collocations=False,
+        max_words=MAX_WORDS,
+        margin=MARGIN,
+        colormap=COLORMAP,
+    ).generate(text)
 
     image_colors = ImageColorGenerator(parrot_color)
     wordcloud.recolor(color_func=image_colors)
@@ -54,11 +76,32 @@ def make_plot_masked():
     plt.imshow(edges)
 
     plt.show()
-    
+
+
 def make_plot():
     # Process chatlog and regex out links, which break the wordcloud
-    text = " ".join(i for i in open("save/chatlog.txt", "r") if re.search('https?:\/\/(www\.)?[-a-zA-Z0-9@:%._\+~#=]{1,256}\.[a-zA-Z0-9()]{1,6}\b([-a-zA-Z0-9()@:%_\+.~#?&//=]*)',i) == None)
-    wordcloud = WordCloud(font_path=FONT,background_color=BACKGROUND_COLOR,scale=SCALE, min_font_size=MIN_FONT_SIZE,max_font_size=MAX_FONT_SIZE,contour_width=2,contour_color="black",collocations=False,max_words=MAX_WORDS,margin=MARGIN,colormap=COLORMAP).generate(text)
+    text = " ".join(
+        i
+        for i in open("save/chatlog.txt", "r")
+        if re.search(
+            "https?:\/\/(www\.)?[-a-zA-Z0-9@:%._\+~#=]{1,256}\.[a-zA-Z0-9()]{1,6}\b([-a-zA-Z0-9()@:%_\+.~#?&//=]*)",
+            i,
+        )
+        == None
+    )
+    wordcloud = WordCloud(
+        font_path=FONT,
+        background_color=BACKGROUND_COLOR,
+        scale=SCALE,
+        min_font_size=MIN_FONT_SIZE,
+        max_font_size=MAX_FONT_SIZE,
+        contour_width=2,
+        contour_color="black",
+        collocations=False,
+        max_words=MAX_WORDS,
+        margin=MARGIN,
+        colormap=COLORMAP,
+    ).generate(text)
 
     plt.figure(figsize=(10, 10))
     plt.imshow(wordcloud, interpolation="bilinear")
