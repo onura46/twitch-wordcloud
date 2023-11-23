@@ -33,6 +33,7 @@ Please see the included LICENSE for details on all other files.
 
 This repository is uploaded mostly for demonstration purposes and personal use, but pull requests and issues are welcome. Please give me some time to respond.
 
-![wordcloud](https://github.com/onura46/twitch-wordcloud/assets/67405765/0480b5b2-a6cd-4bef-b580-d8db9e8b389f)
+![wordcloud](https://github.com/onura46/twitch-wordcloud/assets/67405765/5447bff0-93df-4ecb-b7c5-2de2d1eb0439)
 
-![wordcloud2](https://github.com/onura46/twitch-wordcloud/assets/67405765/63222657-a5a9-45ba-ac47-47f9c7a5d365)
+![wordcloud2](https://github.com/onura46/twitch-wordcloud/assets/67405765/75517c42-4a0e-4862-a25c-3f51fd888b86)
+
